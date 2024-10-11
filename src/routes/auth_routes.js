@@ -1,27 +1,31 @@
 const express = require('express');
-const jwt = require('jsonwebtoken');
+const { check } = require('express-validator');
+const authController = require('../controllers/auth_controller');
+
 const router = express.Router();
 
-router.post('/login', (req, res) => {
-    const { email, password } = req.body;
+router.post('/login',
+    [
+        check('email').isEmail().withMessage('Enter a valid email address'),
+        check('password').notEmpty().withMessage('Password cannot be empty')
+    ],
+    authController.login
+);
 
-    if (isValidUser(email, password)) {
-        const token = jwt.sign(
-            { email, role: getUserRole(email) },
-            'secretKey',
-            { expiresIn: '1h' }
-        );
-        res.json({ token });
-    } else {
-        res.status(401).json({ error: 'Invalid login' });
-    }
-});
+router.post('/register',
+    [
+        check('email').isEmail().withMessage('Enter a valid email address'),
+        check('password').isLength({ min: 5 }).withMessage('Password must be at least 5 characters')
+    ],
+    authController.register
+);
 
-const isValidUser = (email, password) => {
-    return email === 'user@example.com' && password === 'password';
-};
-const getUserRole = (email) => {
-    return email === 'admin@example.com' ? 'admin' : 'user';
-};
+router.get('/users', authController.get_all_users);
+
+router.get('/current-user', authController.current_user);
+
+router.post('/renew-token', authController.renew_token);
+
+router.post('/verify-token', authController.verify_token);
 
 module.exports = router;
