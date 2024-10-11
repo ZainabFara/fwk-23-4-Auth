@@ -17,4 +17,11 @@ router.post('/login', (req, res) => {
     }
 });
 
+const isValidUser = (email, password) => {
+    return email === 'user@example.com' && password === 'password';
+};
+const getUserRole = (email) => {
+    return email === 'admin@example.com' ? 'admin' : 'user';
+};
+
 module.exports = router;
