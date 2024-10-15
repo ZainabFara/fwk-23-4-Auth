@@ -1,0 +1,23 @@
+{
+  "name": "fwk-23-4-auth",
+  "version": "1.0.0",
+  "main": "./src/service.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon service.js",
+    "dev": "node --watch ./src/service.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
