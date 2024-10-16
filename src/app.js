@@ -3,40 +3,7 @@ const app = express();
 app.use(express.json());
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
-key = crypto.randomBytes(32).toString("base64");
 const cors = require("cors");
-
-const generateAccessToken = (user) => {
-  return jwt.sign({ email: user.email, password: user.password }, key, {
-    expiresIn: "15m",
-  });
-};
-
-const generateRefreshToken = (user) => {
-  return jwt.sign({ email: user.email, password: user.password }, key, {
-    expiresIn: "7d",
-  });
-};
-
-const generateCsrfToken = (user) => {
-  return crypto.randomBytes(32).toString("hex");
-};
-
-const token = jwt.sign(
-  {
-    email: "user@test.com",
-    password: "password",
-  },
-  key
-);
-console.log(token);
-
-try {
-  const decoded = jwt.verify(token, key);
-  console.log(decoded);
-} catch (err) {
-  console.log(err);
-}
 
 app.use(
   cors({
@@ -46,6 +13,33 @@ app.use(
 );
 
 app.use(express.json());
+const key = crypto.randomBytes(32).toString("base64");
+
+const generateAccessToken = (user) => {
+  return jwt.sign({ email: user.email }, key, {
+    expiresIn: "15m",
+  });
+};
+
+const generateRefreshToken = (user) => {
+  return jwt.sign({ email: user.email }, key, {
+    expiresIn: "7d",
+  });
+};
+
+const generateCsrfToken = () => {
+  return crypto.randomBytes(32).toString("hex");
+};
+//skapa en statisk JWT
+/*
+const token = jwt.sign(
+  {
+    email: "user@test.com",
+    password: "password",
+  },
+  key
+);
+console.log(token);*/
 
 app.post("/login", (req, res) => {
   console.log(req.body, "logged in from sb");
@@ -55,6 +49,13 @@ app.post("/login", (req, res) => {
     const accsessToken = generateAccessToken({ email });
     const refreshToken = generateRefreshToken({ email });
     const csrfToken = generateCsrfToken({});
+
+    try {
+      const decoded = jwt.verify(accsessToken, key);
+      console.log(decoded);
+    } catch (err) {
+      console.log(err);
+    }
 
     res.cookie("accessToken", accsessToken, {
       httpOnly: true,
