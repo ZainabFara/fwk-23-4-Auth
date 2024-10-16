@@ -4,6 +4,7 @@ app.use(express.json());
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 key = crypto.randomBytes(32).toString("base64");
+const cors = require("cors");
 
 const generateAccessToken = (user) => {
   return jwt.sign({ email: user.email, password: user.password }, key, {
@@ -37,9 +38,18 @@ try {
   console.log(err);
 }
 
+app.use(
+  cors({
+    origin: "http://localhost:6006",
+    credentials: true,
+  })
+);
+
+app.use(express.json());
+
 app.post("/login", (req, res) => {
-  console.log(req.body);
-  const { email, password } = req.body; // Anta att du får email och password från frontend
+  console.log(req.body, "logged in from sb");
+  const { email, password } = req.body;
 
   if (email === "user@test.com" && password === "password") {
     const accsessToken = generateAccessToken({ email });
