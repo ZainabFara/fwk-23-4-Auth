@@ -1,5 +1,5 @@
 const {SECURE, HTTP_ONLY, SAME_SITE } = require('../config.js');
-const { generateAccessToken, generateRefreshToken, generateCsrfToken } = require('../domain/auth_handler.js ');
+const { generateAccessToken, generateRefreshToken, generateCsrfToken } = require('../domain/auth_handler.js');
 
 exports.basicLogin = (req, res) => {
     res.status(200).send("Basic Login!");
@@ -10,18 +10,18 @@ exports.bearerLogin = (req, res) => {
     const { email, password } = req.body;
   
     if (email === "user@test.com" && password === "password") {
-      const accsessToken = generateAccessToken({ email });
+      const accessToken = generateAccessToken({ email });
       const refreshToken = generateRefreshToken({ email });
       const csrfToken = generateCsrfToken({});
   
       try {
-        const decoded = jwt.verify(accsessToken, key);
+        const decoded = jwt.verify(accessToken, key);
         console.log(decoded);
       } catch (err) {
         console.log(err);
       }
   
-      res.cookie("accessToken", accsessToken, {
+      res.cookie("accessToken", accessToken, {
         httpOnly: true,
         secure: false,
         maxAge: 15 * 60 * 1000,

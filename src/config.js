@@ -1,7 +1,7 @@
 require('dotenv').config();
 
-const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || access_token;
-const REFRESH_TOKEN_SECRET = process.env.REFERSH_TOKEN_SECRET || refresh_token;
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || "access_token";
+const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET || "refresh_token";
 
 
 const AUTH_TYPES = {
