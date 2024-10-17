@@ -22,17 +22,17 @@ exports.bearerLogin = (req, res) => {
       }
   
       res.cookie("accessToken", accessToken, {
-        httpOnly: true,
-        secure: false,
+        httpOnly: HTTP_ONLY,
+        secure: SECURE,
         maxAge: 15 * 60 * 1000,
-        sameSite: "strict",
+        sameSite: SAME_SITE
       });
   
       res.cookie("refreshToken", refreshToken, {
-        httpOnly: true,
-        secure: false,
+        httpOnly: HTTP_ONLY,
+        secure: SECURE,
         maxAge: 7 * 24 * 60 * 60 * 1000,
-        sameSite: "strict",
+        sameSite: SAME_SITE
       });
   
       res.json({ csrfToken });
