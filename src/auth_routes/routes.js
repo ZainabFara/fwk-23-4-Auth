@@ -3,9 +3,7 @@ const authController = require('../controllers/auth_controller');
 
 router.post("/login", authController.bearerLogin);
 
-router.post("/register", (req, res) => {
-  req.headers;
-  res.json({ status: "you are registered!" });
-});
+router.post("/register", authController.basicRegister);
+
 
 module.exports = router;
