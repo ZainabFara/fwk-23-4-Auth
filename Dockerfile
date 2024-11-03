@@ -17,10 +17,10 @@ RUN npm install
 COPY . .
 
 # Make port 3000 available to the world outside this container
-EXPOSE 3000
+EXPOSE 3002
 
 # Define environment variable
-ENV PORT=3000
+ENV PORT=3002
 
 # Run the app when the container launches
 CMD ["node", "src/service.js"]

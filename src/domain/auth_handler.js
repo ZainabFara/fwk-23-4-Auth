@@ -1,9 +1,9 @@
-const crypto = require('crypto');
+const crypto = require("crypto");
 const key = crypto.randomBytes(32).toString("base64");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 const generateAccessToken = (user) => {
-  return jwt.sign({ email: user.email }, key, {
+  return jwt.sign({ email: user.email, role: user.role }, key, {
     expiresIn: "15m",
   });
 };
@@ -29,4 +29,8 @@ const token = jwt.sign(
 );
 console.log(token);*/
 
-module.exports = { generateAccessToken, generateRefreshToken, generateCsrfToken };
+module.exports = {
+  generateAccessToken,
+  generateRefreshToken,
+  generateCsrfToken,
+};
