@@ -5,7 +5,6 @@ const cors = require("cors");
 const { AUTH, AUTH_TYPES } = require("./config");
 const helmet = require("helmet");
 
-
 app.use(helmet.hidePoweredBy()); // Döljer teknologin vi använder
 app.use(helmet.frameguard({ action: "deny" })); // Skydd mot clickjacking-attacker
 app.use(helmet.referrerPolicy({ policy: "no-referrer" })); // Förhindrar att referensinformation skickas för att skydda användarens integritet
