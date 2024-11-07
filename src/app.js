@@ -4,6 +4,7 @@ app.use(express.json());
 const cors = require("cors");
 const { AUTH, AUTH_TYPES } = require("./config");
 const helmet = require("helmet");
+const promClient = require("prom-client");
 const { handleHealthCheck } = require("@kunalnagarco/healthie");
 
 app.use(handleHealthCheck());
@@ -12,7 +13,9 @@ app.use(helmet.hidePoweredBy()); // Döljer teknologin vi använder
 app.use(helmet.frameguard({ action: "deny" })); // Skydd mot clickjacking-attacker
 app.use(helmet.referrerPolicy({ policy: "no-referrer" })); // Förhindrar att referensinformation skickas för att skydda användarens integritet
 app.use(helmet.dnsPrefetchControl({ allow: false })); // Stänger av DNS-prefetching
-app.use(helmet.hsts({ maxAge: 31536000, includeSubDomains: true, preload: true })); // Tvingar användning av HTTPS
+app.use(
+  helmet.hsts({ maxAge: 31536000, includeSubDomains: true, preload: true })
+); // Tvingar användning av HTTPS
 app.use(helmet.noSniff()); // Förhindrar MIME-sniffing
 app.use(helmet.xssFilter()); // Skydd mot XSS-attacker
 
@@ -43,5 +46,15 @@ app.get("/", (req, res) => {
 app.get("/health");
 
 app.use("/api/auth", require("./auth_routes/routes.js"));
+
+// Registrera Prometheus-klienten
+const register = new promClient.Registry();
+promClient.collectDefaultMetrics({ register });
+
+// Skapa en "metrics" endpoint
+app.get("/metrics", async (req, res) => {
+  res.set("Content-Type", register.contentType);
+  res.end(await register.metrics());
+});
 
 module.exports = app;
