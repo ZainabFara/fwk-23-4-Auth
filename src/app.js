@@ -4,6 +4,9 @@ app.use(express.json());
 const cors = require("cors");
 const { AUTH, AUTH_TYPES } = require("./config");
 const helmet = require("helmet");
+const { handleHealthCheck } = require("@kunalnagarco/healthie");
+
+app.use(handleHealthCheck());
 
 app.use(
   helmet({
@@ -36,6 +39,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send({ status: "ok" });
 });
+
+app.get("/health");
 
 app.use("/api/auth", require("./auth_routes/routes.js"));
 
