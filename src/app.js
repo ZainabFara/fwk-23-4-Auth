@@ -9,6 +9,7 @@ const { handleHealthCheck } = require("@kunalnagarco/healthie");
 const morgan = require("morgan");
 const logger = require("./logger");
 
+app.use(express.json());
 app.use(handleHealthCheck());
 app.use(helmet.hidePoweredBy()); // Döljer teknologin vi använder
 app.use(helmet.frameguard({ action: "deny" })); // Skydd mot clickjacking-attacker

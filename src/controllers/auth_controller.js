@@ -27,8 +27,8 @@ db.connect((err) => {
 
 exports.bearerLogin = (req, res) => {
   const { email, password } = req.body;
-  logger.info("Received email:", email);
-  logger.info("Received password:", password);
+  logger.info(`Received email: ${email}`);
+  logger.info(`Received password: ${password}`);
   let role;
 
   if (email === "user@test.com" && password === "password") {
