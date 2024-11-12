@@ -2,6 +2,7 @@ const { SECURE, HTTP_ONLY, SAME_SITE } = require("../config.js");
 const mysql = require("mysql2");
 const { v4: uuidv4 } = require("uuid");
 const bcrypt = require("bcrypt");
+const logger = require("../logger"); // hämta logger funktionen från logger.js
 const {
   generateAccessToken,
   generateRefreshToken,
@@ -18,16 +19,16 @@ const db = mysql.createConnection({
 
 db.connect((err) => {
   if (err) {
-    console.error("Error connecting to database!", err);
+    logger.error("Error connecting to database!", err);
     return;
   }
-  console.log("Connected to database");
+  logger.info("Connected to database");
 });
 
 exports.bearerLogin = (req, res) => {
   const { email, password } = req.body;
-  console.log("Received email:", email);
-  console.log("Received password:", password);
+  logger.info("Received email:", email);
+  logger.info("Received password:", password);
   let role;
 
   if (email === "user@test.com" && password === "password") {
@@ -72,7 +73,7 @@ exports.basicRegister = async (req, res) => {
       [username, email, hashedPassword, userId],
       (err, results) => {
         if (err) {
-          console.error("Database error:", err);
+          logger.error("Database error:", err);
           return res.status(500).json({ message: "Registration failed!" });
         }
         const accessToken = generateAccessToken({ email });
@@ -88,7 +89,7 @@ exports.basicRegister = async (req, res) => {
       }
     );
   } catch (error) {
-    console.error("Error with registration:", error);
+    logger.error("Error with registration:", error);
     res.status(500).json({ message: "Registration failed" });
   }
 };

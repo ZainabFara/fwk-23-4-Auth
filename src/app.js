@@ -6,9 +6,10 @@ const { AUTH, AUTH_TYPES } = require("./config");
 const helmet = require("helmet");
 const promClient = require("prom-client");
 const { handleHealthCheck } = require("@kunalnagarco/healthie");
+const morgan = require("morgan");
+const logger = require("./logger");
 
 app.use(handleHealthCheck());
-
 app.use(helmet.hidePoweredBy()); // Döljer teknologin vi använder
 app.use(helmet.frameguard({ action: "deny" })); // Skydd mot clickjacking-attacker
 app.use(helmet.referrerPolicy({ policy: "no-referrer" })); // Förhindrar att referensinformation skickas för att skydda användarens integritet
@@ -46,6 +47,15 @@ app.get("/", (req, res) => {
 //app.get("/health");
 
 app.use("/api/auth", require("./auth_routes/routes.js"));
+
+//Konfig Morgan att använda Winston
+app.use(
+  morgan("combined", {
+    stream: {
+      write: (message) => logger.info(message.trim()),
+    },
+  })
+);
 
 // Registrera Prometheus-klienten
 const register = new promClient.Registry();
