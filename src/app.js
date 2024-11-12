@@ -43,7 +43,7 @@ app.get("/", (req, res) => {
   res.send({ status: "ok" });
 });
 
-app.get("/health");
+//app.get("/health");
 
 app.use("/api/auth", require("./auth_routes/routes.js"));
 

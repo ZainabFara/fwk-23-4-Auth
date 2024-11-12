@@ -1,7 +1,12 @@
 global:
-  scrape_interval: 15s
+  scrape_interval: 60s
 
 scrape_configs:
-  - job_name: "docker"
+  - job_name: "fwk-auth"
     static_configs:
-      - targets: ["host.docker.internal:3002"] # Ändra till den port och adress där din app körs
+      - targets: ["localhost:3002"] # Eller den port där din Docker-miljö är exponerad för Prometheus
+    docker_sd_configs:
+      - host: "unix:///var/run/docker.sock" # Detta används för att skrapa Docker-metrik
+    relabel_configs:
+      - source_labels: [__meta_docker_container_name]
+        target_label: "container"

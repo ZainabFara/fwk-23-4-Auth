@@ -1,15 +1,14 @@
-version: "3.8"
-
 services:
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - /var/run/docker.sock:/var/run/docker.sock # Montera Docker socket
     ports:
       - "9090:9090"
     networks:
-      - monitoring
+      - fwk-net
 
   grafana:
     image: grafana/grafana:latest
@@ -19,8 +18,8 @@ services:
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
     networks:
-      - monitoring
+      - fwk-net
 
 networks:
-  monitoring:
+  fwk-net:
     driver: bridge
