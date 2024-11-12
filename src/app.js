@@ -51,13 +51,8 @@ app.use("/api/auth", require("./auth_routes/routes.js"));
 
 //Konfig Morgan att använda Winston
 app.use(
-  morgan("combined", {
-    stream: {
-      write: (message) => logger.info(message.trim()),
-    },
-  })
+  morgan(":method :url :status :res[content-length] - :response-time ms")
 );
-
 // Registrera Prometheus-klienten
 const register = new promClient.Registry();
 promClient.collectDefaultMetrics({ register });
