@@ -87,3 +87,177 @@
 2024-11-12T20:58:47.113Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
 2024-11-12T20:58:50.542Z [info]: Received email: admin@admin.com
 2024-11-12T20:58:50.542Z [info]: Received password: password
+2024-11-12T21:01:09.446Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T21:01:26.059Z [info]: Received email: admin@admin.com
+2024-11-12T21:01:26.060Z [info]: Received password: password
+2024-11-12T21:06:06.896Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T21:09:08.970Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T21:09:18.700Z [info]: Received email: admin@admin.com
+2024-11-12T21:09:18.700Z [info]: Received password: password
+2024-11-12T21:12:34.183Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T21:12:39.709Z [info]: Received email: admin@admin.com
+2024-11-12T21:12:39.710Z [info]: Received password: password
+2024-11-12T21:13:10.228Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T21:13:12.356Z [info]: Received email: admin@admin.com
+2024-11-12T21:13:12.357Z [info]: Received password: password
+2024-11-12T21:16:14.773Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T21:16:18.273Z [info]: Received email: admin@admin.com
+2024-11-12T21:16:18.274Z [info]: Received password: password
+2024-11-12T21:20:16.153Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T21:20:38.301Z [info]: Received email: admin@admin.com
+2024-11-12T21:20:38.302Z [info]: Received password: password
+2024-11-12T21:26:38.537Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T21:26:43.027Z [info]: Received email: admin@admin.com
+2024-11-12T21:26:43.027Z [info]: Received password: password
+2024-11-12T21:27:32.055Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T21:27:33.309Z [info]: Received email: admin@admin.com
+2024-11-12T21:27:33.310Z [info]: Received password: password
+2024-11-12T21:29:03.274Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T21:29:21.309Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+{"code":"ENOTFOUND","errno":-3008,"fatal":true,"hostname":"test-mysql","level":"error","message":"Error connecting to database! getaddrinfo ENOTFOUND test-mysql","stack":"Error: getaddrinfo ENOTFOUND test-mysql\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)","syscall":"getaddrinfo","timestamp":"2024-11-12T21:31:35.616Z"}
+{"level":"info","message":"Received email: admin@admin.com","timestamp":"2024-11-12T21:32:04.908Z"}
+{"level":"info","message":"Received password: password","timestamp":"2024-11-12T21:32:04.909Z"}
+{"code":"ENOTFOUND","errno":-3008,"fatal":true,"hostname":"test-mysql","level":"error","message":"Error connecting to database! getaddrinfo ENOTFOUND test-mysql","stack":"Error: getaddrinfo ENOTFOUND test-mysql\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)","syscall":"getaddrinfo","timestamp":"2024-11-12T21:34:13.716Z"}
+{"level":"info","message":"Received email: admin@admin.com","timestamp":"2024-11-12T21:34:20.273Z"}
+{"level":"info","message":"Received password: password","timestamp":"2024-11-12T21:34:20.274Z"}
+{"code":"ENOTFOUND","errno":-3008,"fatal":true,"hostname":"test-mysql","level":"error","message":"Error connecting to database! getaddrinfo ENOTFOUND test-mysql","stack":"Error: getaddrinfo ENOTFOUND test-mysql\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)","syscall":"getaddrinfo","timestamp":"2024-11-12T21:50:10.153Z"}
+{"level":"info","message":"Received email: admin@admin.com","timestamp":"2024-11-12T21:50:12.074Z"}
+{"level":"info","message":"Received password: password","timestamp":"2024-11-12T21:50:12.075Z"}
+{"code":"ENOTFOUND","errno":-3008,"fatal":true,"hostname":"test-mysql","level":"error","message":"Error connecting to database! getaddrinfo ENOTFOUND test-mysql","stack":"Error: getaddrinfo ENOTFOUND test-mysql\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)","syscall":"getaddrinfo","timestamp":"2024-11-12T21:54:13.601Z"}
+{"level":"info","message":"Received email: admin@admin.com","timestamp":"2024-11-12T21:55:42.529Z"}
+{"level":"info","message":"Received password: password","timestamp":"2024-11-12T21:55:42.529Z"}
+{"code":"ENOTFOUND","errno":-3008,"fatal":true,"hostname":"test-mysql","level":"error","message":"Error connecting to database! getaddrinfo ENOTFOUND test-mysql","stack":"Error: getaddrinfo ENOTFOUND test-mysql\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)","syscall":"getaddrinfo","timestamp":"2024-11-12T22:04:52.117Z"}
+[31merror[39m: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+{"code":"ENOTFOUND","errno":-3008,"fatal":true,"hostname":"test-mysql","level":"error","message":"Error connecting to database! getaddrinfo ENOTFOUND test-mysql","stack":"Error: getaddrinfo ENOTFOUND test-mysql\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)","syscall":"getaddrinfo","timestamp":"2024-11-12T22:09:21.684Z"}
+{"code":"ENOTFOUND","errno":-3008,"fatal":true,"hostname":"test-mysql","level":"error","message":"Error connecting to database! getaddrinfo ENOTFOUND test-mysql","stack":"Error: getaddrinfo ENOTFOUND test-mysql\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)","syscall":"getaddrinfo","timestamp":"2024-11-12T22:11:39.087Z"}
+{"level":"info","message":"Received email: admin@admin.com","timestamp":"2024-11-12T22:16:13.278Z"}
+{"level":"info","message":"Received password: password","timestamp":"2024-11-12T22:16:13.279Z"}
+{"code":"ENOTFOUND","errno":-3008,"fatal":true,"hostname":"test-mysql","level":"error","message":"Error connecting to database! getaddrinfo ENOTFOUND test-mysql","stack":"Error: getaddrinfo ENOTFOUND test-mysql\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)","syscall":"getaddrinfo","timestamp":"2024-11-12T22:22:12.155Z"}
+{"code":"ENOTFOUND","errno":-3008,"fatal":true,"hostname":"test-mysql","level":"error","message":"Error connecting to database! getaddrinfo ENOTFOUND test-mysql","stack":"Error: getaddrinfo ENOTFOUND test-mysql\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)","syscall":"getaddrinfo","timestamp":"2024-11-12T22:24:49.808Z"}
+{"level":"info","message":"Received email: admin@admin.com","timestamp":"2024-11-12T22:24:59.530Z"}
+{"level":"info","message":"Received password: password","timestamp":"2024-11-12T22:24:59.531Z"}
+{
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'test-mysql',
+  fatal: true,
+  level: 'error',
+  message: 'Error connecting to database! getaddrinfo ENOTFOUND test-mysql',
+  stack: 'Error: getaddrinfo ENOTFOUND test-mysql\n' +
+    '    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)',
+  timestamp: '2024-11-12T22:28:49.870Z'
+}
+{
+  message: 'Received email: admin@admin.com',
+  level: 'info',
+  timestamp: '2024-11-12T22:28:52.754Z'
+}
+{
+  message: 'Received password: password',
+  level: 'info',
+  timestamp: '2024-11-12T22:28:52.755Z'
+}
+{
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'test-mysql',
+  fatal: true,
+  level: 'error',
+  message: 'Error connecting to database! getaddrinfo ENOTFOUND test-mysql',
+  stack: 'Error: getaddrinfo ENOTFOUND test-mysql\n' +
+    '    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)',
+  timestamp: '2024-11-12T22:33:30.320Z'
+}
+{
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'test-mysql',
+  fatal: true,
+  level: 'error',
+  message: 'Error connecting to database! getaddrinfo ENOTFOUND test-mysql',
+  stack: 'Error: getaddrinfo ENOTFOUND test-mysql\n' +
+    '    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)',
+  timestamp: '2024-11-12T22:34:13.812Z'
+}
+{
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'test-mysql',
+  fatal: true,
+  level: 'error',
+  message: 'Error connecting to database! getaddrinfo ENOTFOUND test-mysql',
+  stack: 'Error: getaddrinfo ENOTFOUND test-mysql\n' +
+    '    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)',
+  timestamp: '2024-11-12T22:34:33.121Z'
+}
+{
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'test-mysql',
+  fatal: true,
+  level: 'error',
+  message: 'Error connecting to database! getaddrinfo ENOTFOUND test-mysql',
+  stack: 'Error: getaddrinfo ENOTFOUND test-mysql\n' +
+    '    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)',
+  timestamp: '2024-11-12T22:34:54.399Z'
+}
+{
+  message: 'Received email: admin@admin.com',
+  level: 'info',
+  timestamp: '2024-11-12T22:35:42.715Z'
+}
+{
+  message: 'Received password: password',
+  level: 'info',
+  timestamp: '2024-11-12T22:35:42.716Z'
+}
+{
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'test-mysql',
+  fatal: true,
+  level: 'error',
+  message: 'Error connecting to database! getaddrinfo ENOTFOUND test-mysql',
+  stack: 'Error: getaddrinfo ENOTFOUND test-mysql\n' +
+    '    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)',
+  timestamp: '2024-11-12T22:37:58.917Z'
+}
+{
+  message: 'Received email: admin@admin.com',
+  level: 'info',
+  timestamp: '2024-11-12T22:38:00.800Z'
+}
+{
+  message: 'Received password: password',
+  level: 'info',
+  timestamp: '2024-11-12T22:38:00.800Z'
+}
+{
+  message: 'Received email: admin@admin.com',
+  level: 'info',
+  timestamp: '2024-11-12T22:40:56.861Z'
+}
+{
+  message: 'Received password: password',
+  level: 'info',
+  timestamp: '2024-11-12T22:40:56.861Z'
+}
+{"code":"ENOTFOUND","errno":-3008,"fatal":true,"hostname":"test-mysql","level":"error","message":"Error connecting to database! getaddrinfo ENOTFOUND test-mysql","stack":"Error: getaddrinfo ENOTFOUND test-mysql\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)","syscall":"getaddrinfo","timestamp":"2024-11-12T23:11:56.411Z"}
+{"code":"ENOTFOUND","errno":-3008,"fatal":true,"hostname":"test-mysql","level":"error","message":"Error connecting to database! getaddrinfo ENOTFOUND test-mysql","stack":"Error: getaddrinfo ENOTFOUND test-mysql\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)","syscall":"getaddrinfo","timestamp":"2024-11-12T23:12:43.358Z"}
+{"level":"info","message":"Received email: admin@admin.com","timestamp":"2024-11-12T23:12:46.134Z"}
+{"level":"info","message":"Received password: password","timestamp":"2024-11-12T23:12:46.135Z"}
+{"code":"ENOTFOUND","errno":-3008,"fatal":true,"hostname":"test-mysql","level":"error","message":"Error connecting to database! getaddrinfo ENOTFOUND test-mysql","stack":"Error: getaddrinfo ENOTFOUND test-mysql\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)","syscall":"getaddrinfo","timestamp":"2024-11-12T23:15:22.362Z"}
+2024-11-12T23:50:16.205Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T23:53:47.995Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T23:53:50.433Z [info]: Received email: admin@admin.com
+2024-11-12T23:53:50.434Z [info]: Received password: password
+2024-11-12T23:56:20.276Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T23:57:47.097Z [error]: Error connecting to database! getaddrinfo ENOTFOUND test-mysql
+2024-11-12T23:57:49.763Z [info]: Received email: admin@admin.com
+2024-11-12T23:57:49.764Z [info]: Received password: password

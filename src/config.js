@@ -47,7 +47,7 @@ const SAME_SITE =
     : SAME_SITE_TYPES[(process.env.SAME_SITE || "NONE").toUpperCase()] ||
       SAME_SITE_TYPES.NONE;
 
-const LOG_LEVEL = process.env.LOG_LEVEL || "info";
+const LOG_LEVEL = process.env.LOG_LEVEL || "info" || "error";
 
 module.exports = {
   HOST,

@@ -1,13 +1,11 @@
 const express = require("express");
 const app = express();
-app.use(express.json());
 const cors = require("cors");
 const { AUTH, AUTH_TYPES } = require("./config");
 const helmet = require("helmet");
 const promClient = require("prom-client");
 const { handleHealthCheck } = require("@kunalnagarco/healthie");
 const morgan = require("morgan");
-const logger = require("./logger");
 
 app.use(express.json());
 app.use(handleHealthCheck());
@@ -53,6 +51,7 @@ app.use("/api/auth", require("./auth_routes/routes.js"));
 app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms")
 );
+
 // Registrera Prometheus-klienten
 const register = new promClient.Registry();
 promClient.collectDefaultMetrics({ register });
