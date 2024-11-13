@@ -1,23 +1,3 @@
-/*const winston = require("winston");
-require("dotenv").config();
-const logger = winston.createLogger({
-  level: "info",
-  format: winston.format.combine(
-    winston.format.colorize(),
-    winston.format.timestamp(),
-    winston.format.json(),
-    winston.format.simple(),
-    winston.format.printf(({ timestamp, level, message }) => {
-      return `${timestamp} [${level}]: ${message} ${method}`;
-    })
-  ),
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({ filename: "application.log" }),
-  ],
-});
-
-module.exports = logger;*/
 const winston = require("winston");
 const { LOG_LEVEL } = require("./config");
 

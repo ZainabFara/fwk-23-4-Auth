@@ -3,7 +3,6 @@ const app = express();
 const cors = require("cors");
 const { AUTH, AUTH_TYPES } = require("./config");
 const helmet = require("helmet");
-const promClient = require("prom-client");
 const { handleHealthCheck } = require("@kunalnagarco/healthie");
 const morgan = require("morgan");
 const { getMetrics } = require("./controllers/metrics_controller.js");
