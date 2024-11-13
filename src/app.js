@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const promClient = require("prom-client");
 const { handleHealthCheck } = require("@kunalnagarco/healthie");
 const morgan = require("morgan");
+const { getMetrics } = require("./controllers/metrics_controller.js");
 
 app.use(express.json());
 app.use(handleHealthCheck());
@@ -39,12 +40,6 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.send({ status: "ok" });
-});
-
-//app.get("/health");
-
 app.use("/api/auth", require("./auth_routes/routes.js"));
 
 //Konfig Morgan att använda Winston
@@ -52,14 +47,12 @@ app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms")
 );
 
-// Registrera Prometheus-klienten
-const register = new promClient.Registry();
-promClient.collectDefaultMetrics({ register });
+//app.get("/health");
 
-// Skapa en "metrics" endpoint
-app.get("/metrics", async (req, res) => {
-  res.set("Content-Type", register.contentType);
-  res.end(await register.metrics());
+app.get("/", (req, res) => {
+  res.send({ status: "ok" });
 });
+
+app.get("/metrics", getMetrics);
 
 module.exports = app;

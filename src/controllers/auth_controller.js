@@ -2,7 +2,8 @@ const { SECURE, HTTP_ONLY, SAME_SITE } = require("../config.js");
 const mysql = require("mysql2");
 const { v4: uuidv4 } = require("uuid");
 const bcrypt = require("bcrypt");
-const logger = require("../logger"); // hämta logger funktionen från logger.js
+const logger = require("../logger");
+const { loginCounter } = require("./metrics_controller.js");
 const {
   generateAccessToken,
   generateRefreshToken,
@@ -33,8 +34,10 @@ exports.bearerLogin = (req, res) => {
 
   if (email === "user@test.com" && password === "password") {
     role = "user";
+    loginCounter.inc();
   } else if (email === "admin@admin.com" && password === "password") {
     role = "admin";
+    loginCounter.inc();
   } else {
     return res.status(401).json({ message: "Login failed. Try again." });
   }
