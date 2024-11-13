@@ -8,8 +8,7 @@ This project is an authentication server built with Node.js and Express that han
 
 - **User Authentication:** Token-based authentication using `accessToken`, `refreshToken`, and `csrfToken`.
 - **Security:** `accessToken` stored in `httpOnly` cookies with CSRF protection.
-- **Monitoring:** Integrated Prometheus metrics to track user actions, such as login attempts and application errors.
-- **Docker-Ready:** The server is containerized with Docker, with Docker Compose setup for easy deployment.
+- **Monitoring:** Integrated Prometheus metrics to track user actions, such as login attempts.
 
 ## Prerequisites
 
@@ -22,24 +21,25 @@ To run this project, you need:
 
 1. **Clone the repository:**
 
-   ```bash
+```bash
    git clone https://github.com/ZainabFara/fwk-23-4-Auth.git
    cd fwk-23-4-Auth
-
-   ```
+```
 
 2. **Install dependencies:**
-   ```bash
+
+```bash
    npm install
-   ```
+```
+
 3. **Build och start Docker Compose**
 
 ```bash
-docker-compose build
-docker-compose up -d
+   docker-compose build
+   docker-compose up -d
 ```
 
-4. \*\*Verify installation: Check that the services are running:
+4. **Verify installation: Check that the services are running**
 
 Check that the services are running and accessible at the following endpoints:
 
@@ -79,19 +79,19 @@ Logging is managed by **Winston** with the following configuration:
 
 ## Monitoring and Observability
 
-This project is integrated with **Prometheus** and **Grafana** for monitoring and observability:
+This project is integrated with [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) for monitoring and observability:
 
 - Health checks and operational status of the auth server.
 - Resource usage metrics such as CPU and memory usage, monitored via the Docker Exporter.
 
 ## Development and Testing
 
-To test the API, you can use **Insomnia** or any other API client.
+To test the API, you can use [Insomnia](https://insomnia.rest/) or any other API client.
 
 For local development:
 
 1. Run the server locally with the command:
 
-   ```bash
+```bash
    npm start
-   ```
+```
