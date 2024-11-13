@@ -1,22 +1,97 @@
 # Auth Server
 
-## Beskrivning
-Detta projekt är en autentiseringsserver byggd med Node.js och Express som hanterar användarautentisering och registrering. Servern implementerar säker inloggning och registrering med token-baserad autentisering samt övervakning med Prometheus och Grafana.
+## Description
 
-## Funktioner
-- **Användarautentisering:** Token-baserad autentisering med `accessToken`, `refreshToken`, och `csrfToken`.
-- **Säkerhet:** Lagring av `accessToken` i `httpOnly` cookies och användning av CSRF-skydd.
-- **Övervakning:** Integrering av Prometheus för insamling av användarmetriker, såsom antal inloggningar och eventuella fel.
-- **Docker-kompatibilitet:** Servern är containeriserad med Docker och inkluderar Docker Compose-konfiguration för att underlätta distributionen.
+This project is an authentication server built with Node.js and Express that handles user login and registration. The server uses token-based authentication, ensuring secure login, and integrates monitoring with Prometheus and Grafana.
 
-## Förutsättningar
-För att köra projektet behöver du ha:
-- [Node.js](https://nodejs.org/) installerat.
-- [Docker och Docker Compose](https://www.docker.com/) installerat.
+## Features
+
+- **User Authentication:** Token-based authentication using `accessToken`, `refreshToken`, and `csrfToken`.
+- **Security:** `accessToken` stored in `httpOnly` cookies with CSRF protection.
+- **Monitoring:** Integrated Prometheus metrics to track user actions, such as login attempts and application errors.
+- **Docker-Ready:** The server is containerized with Docker, with Docker Compose setup for easy deployment.
+
+## Prerequisites
+
+To run this project, you need:
+
+- [Node.js](https://nodejs.org/) installed.
+- [Docker and Docker Compose](https://www.docker.com/) installed.
 
 ## Installation
 
-1. **Klona detta repository:**
+1. **Clone the repository:**
+
    ```bash
-   git clone https://github.com/ditt-anvandarnamn/auth-server.git
-   cd auth-server
+   git clone https://github.com/ZainabFara/fwk-23-4-Auth.git
+   cd fwk-23-4-Auth
+
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Build och start Docker Compose**
+
+```bash
+docker-compose build
+docker-compose up -d
+```
+
+4. \*\*Verify installation: Check that the services are running:
+
+Check that the services are running and accessible at the following endpoints:
+
+- **Auth Server**: [http://localhost:3002](http://localhost:3002)
+- **Prometheus**: [http://localhost:9090](http://localhost:9090)
+- **Grafana**: [http://localhost:3005](http://localhost:3005)
+
+## Usage
+
+### API Endpoints
+
+- **POST /login**: Logs in a user and generates access and refresh tokens.
+- **POST /register**: Registers a new user.
+- **GET /metrics**: Retrieves metrics in Prometheus format.
+- **GET /health**: Check service status
+- **GET /Prometheus metrics**: Checks metrics
+
+### Authentication
+
+The server uses `accessToken`, `refreshToken`, and `csrfToken` for secure authentication:
+
+- `accessToken` is stored in `httpOnly` cookies for secure session validation.
+- `csrfToken` is used to prevent CSRF attacks.
+
+## Metrics
+
+The auth server is configured with Prometheus to monitor application health and usage data, including:
+
+- **login_counter**: Tracks the total number of user logins.
+
+## Logging
+
+Logging is managed by **Winston** with the following configuration:
+
+- Logs are written to both the console and the `log/combine.log` file.
+- Each log entry includes a timestamp and is stored in JSON format for consistency and structure.
+
+## Monitoring and Observability
+
+This project is integrated with **Prometheus** and **Grafana** for monitoring and observability:
+
+- Health checks and operational status of the auth server.
+- Resource usage metrics such as CPU and memory usage, monitored via the Docker Exporter.
+
+## Development and Testing
+
+To test the API, you can use **Insomnia** or any other API client.
+
+For local development:
+
+1. Run the server locally with the command:
+
+   ```bash
+   npm start
+   ```

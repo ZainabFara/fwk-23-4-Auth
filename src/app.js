@@ -46,7 +46,7 @@ app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms")
 );
 
-//app.get("/health");
+app.get("/health");
 
 app.get("/", (req, res) => {
   res.send({ status: "ok" });
