@@ -8,20 +8,13 @@ const {
   generateCsrfToken,
 } = require("../domain/auth_handler.js");
 
-const db = mysql.createConnection({
-  host: "test-mysql",
+const pool = mysql.createPool({
+  connectionLimit: 10,
+  host: "127.0.0.1",
   port: 3306,
   user: "test",
   password: "test",
   database: "test",
-});
-
-db.connect((err) => {
-  if (err) {
-    console.error("Error connecting to database!", err);
-    return;
-  }
-  console.log("Connected to database");
 });
 
 exports.bearerLogin = (req, res) => {
@@ -67,7 +60,7 @@ exports.basicRegister = async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     const userId = uuidv4();
-    db.query(
+    pool.query(
       "INSERT INTO users (username, email, password, uuid) VALUES (?, ?, ?, ?)",
       [username, email, hashedPassword, userId],
       (err, results) => {
@@ -88,7 +81,10 @@ exports.basicRegister = async (req, res) => {
       }
     );
   } catch (error) {
+    console.log(error);
     console.error("Error with registration:", error);
     res.status(500).json({ message: "Registration failed" });
   }
 };
+
+exports.verify = async (req, res) => {};
