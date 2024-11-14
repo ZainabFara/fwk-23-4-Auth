@@ -60,7 +60,6 @@ Check that the services are running and accessible at the following endpoints:
 - **POST /register**: Registers a new user.
 - **GET /metrics**: Retrieves metrics in Prometheus format.
 - **GET /health**: Check service status
-- **GET /Prometheus metrics**: Checks metrics
 
 ### Authentication
 
