@@ -32,14 +32,19 @@ To run this project, you need:
    npm install
 ```
 
-3. **Build och start Docker Compose**
+3. **Build the Docker Compose services**
 
 ```bash
    docker-compose build
+```
+
+4. **Run the Docker Compose services**
+
+```bash
    docker-compose up -d
 ```
 
-4. **Verify installation: Check that the services are running**
+5. **Verify installation: Check that the services are running**
 
 Check that the services are running and accessible at the following endpoints:
 
@@ -68,7 +73,7 @@ The server uses `accessToken`, `refreshToken`, and `csrfToken` for secure authen
 
 The auth server is configured with Prometheus to monitor application health and usage data, including:
 
-- **login_counter**: Tracks the total number of user logins.
+- **login_counter**: Tracks the total number of total logins.
 
 ## Logging
 
