@@ -22,8 +22,7 @@ To run this project, you need:
 1. **Clone the repository:**
 
 ```bash
-   git clone https://github.com/ZainabFara/fwk-23-4-Auth.git
-   cd fwk-23-4-Auth
+   git clone https://github.com/ZainabFara/fwk-23-4-Auth.git && cd fwk-23-4-Auth
 ```
 
 2. **Install dependencies:**
