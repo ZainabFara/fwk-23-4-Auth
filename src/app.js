@@ -1,15 +1,21 @@
 const express = require("express");
 const app = express();
-app.use(express.json());
 const cors = require("cors");
 const { AUTH, AUTH_TYPES } = require("./config");
 const helmet = require("helmet");
+const { handleHealthCheck } = require("@kunalnagarco/healthie");
+const morgan = require("morgan");
+const { getMetrics } = require("./controllers/metrics_controller.js");
 
+app.use(express.json());
+app.use(handleHealthCheck());
 app.use(helmet.hidePoweredBy()); // Döljer teknologin vi använder
 app.use(helmet.frameguard({ action: "deny" })); // Skydd mot clickjacking-attacker
 app.use(helmet.referrerPolicy({ policy: "no-referrer" })); // Förhindrar att referensinformation skickas för att skydda användarens integritet
 app.use(helmet.dnsPrefetchControl({ allow: false })); // Stänger av DNS-prefetching
-app.use(helmet.hsts({ maxAge: 31536000, includeSubDomains: true, preload: true })); // Tvingar användning av HTTPS
+app.use(
+  helmet.hsts({ maxAge: 31536000, includeSubDomains: true, preload: true })
+); // Tvingar användning av HTTPS
 app.use(helmet.noSniff()); // Förhindrar MIME-sniffing
 app.use(helmet.xssFilter()); // Skydd mot XSS-attacker
 
@@ -33,10 +39,19 @@ app.use(
   })
 );
 
+app.use("/api/auth", require("./auth_routes/routes.js"));
+
+//Konfig Morgan att använda Winston
+app.use(
+  morgan(":method :url :status :res[content-length] - :response-time ms")
+);
+
+app.get("/health");
+
 app.get("/", (req, res) => {
   res.send({ status: "ok" });
 });
 
-app.use("/api/auth", require("./auth_routes/routes.js"));
+app.get("/metrics", getMetrics);
 
 module.exports = app;

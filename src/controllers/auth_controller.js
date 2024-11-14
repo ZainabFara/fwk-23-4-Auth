@@ -2,6 +2,8 @@ const { SECURE, HTTP_ONLY, SAME_SITE } = require("../config.js");
 const mysql = require("mysql2");
 const { v4: uuidv4 } = require("uuid");
 const bcrypt = require("bcrypt");
+const logger = require("../logger");
+const { loginCounter } = require("./metrics_controller.js");
 const {
   generateAccessToken,
   generateRefreshToken,
@@ -19,14 +21,16 @@ const pool = mysql.createPool({
 
 exports.bearerLogin = (req, res) => {
   const { email, password } = req.body;
-  console.log("Received email:", email);
-  console.log("Received password:", password);
+  logger.info(`Received email: ${email}`, { method: req.method });
+  logger.info(`Received password: ${password}`);
   let role;
 
   if (email === "user@test.com" && password === "password") {
     role = "user";
+    loginCounter.inc();
   } else if (email === "admin@admin.com" && password === "password") {
     role = "admin";
+    loginCounter.inc();
   } else {
     return res.status(401).json({ message: "Login failed. Try again." });
   }
@@ -65,7 +69,7 @@ exports.basicRegister = async (req, res) => {
       [username, email, hashedPassword, userId],
       (err, results) => {
         if (err) {
-          console.error("Database error:", err);
+          logger.error("Database error:", err);
           return res.status(500).json({ message: "Registration failed!" });
         }
         const accessToken = generateAccessToken({ email });
@@ -81,7 +85,6 @@ exports.basicRegister = async (req, res) => {
       }
     );
   } catch (error) {
-    console.log(error);
     console.error("Error with registration:", error);
     res.status(500).json({ message: "Registration failed" });
   }

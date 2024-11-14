@@ -18,17 +18,6 @@ const generateCsrfToken = () => {
   return crypto.randomBytes(32).toString("hex");
 };
 
-//skapa en statisk JWT
-/*
-const token = jwt.sign(
-  {
-    email: "user@test.com",
-    password: "password",
-  },
-  key
-);
-console.log(token);*/
-
 module.exports = {
   generateAccessToken,
   generateRefreshToken,

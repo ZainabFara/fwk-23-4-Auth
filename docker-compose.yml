@@ -1,0 +1,37 @@
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - fwk-net
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3005:3005"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SERVER_HTTP_PORT=3005 # Ställ in Grafana att lyssna på port 3005
+    networks:
+      - fwk-net
+
+  your-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: your-app-container
+    networks:
+      - fwk-net
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=production
+
+networks:
+  fwk-net:
+    driver: bridge
