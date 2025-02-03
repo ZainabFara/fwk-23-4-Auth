@@ -22,8 +22,7 @@ To run this project, you need:
 1. **Clone the repository:**
 
 ```bash
-   git clone https://github.com/ZainabFara/fwk-23-4-Auth.git
-   cd fwk-23-4-Auth
+   git clone https://github.com/ZainabFara/fwk-23-4-Auth.git && cd fwk-23-4-Auth
 ```
 
 2. **Install dependencies:**
@@ -60,7 +59,6 @@ Check that the services are running and accessible at the following endpoints:
 - **POST /register**: Registers a new user.
 - **GET /metrics**: Retrieves metrics in Prometheus format.
 - **GET /health**: Check service status
-- **GET /Prometheus metrics**: Checks metrics
 
 ### Authentication
 
